@@ -13,11 +13,34 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #define SIZE 5
+    int stack[SIZE], top = -1;
+    
+    void display() {
+        if (top == -1)
+            printf("Stack is empty\n");
+        else {
+            printf("Stack elements: ");
+            for (int i = top; i >= 0; i--)
+                printf("%d ", stack[i]);
+            printf("\n");
+        }
+    }
+    
+    int main() {
+        stack[++top] = 10;
+        stack[++top] = 20;
+        stack[++top] = 30;
+        display();
+        return 0;
+    }
+
 
 Output:
 
-//paste your output here
+<img width="520" height="233" alt="image" src="https://github.com/user-attachments/assets/bb3e53b8-73e5-46bf-ab30-9506b07147e7" />
+
 
 
 
@@ -36,11 +59,32 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #define SIZE 5
+    float stack[SIZE];
+    int top = -1;
+    
+    void push(float x) {
+        if (top == SIZE - 1)
+            printf("Stack overflow\n");
+        else {
+            stack[++top] = x;
+            printf("%.2f pushed\n", x);
+        }
+    }
+    
+    int main() {
+        push(10.5);
+        push(20.2);
+        push(30.7);
+        return 0;
+    }
+
 
 Output:
 
-//paste your output here
+<img width="521" height="244" alt="image" src="https://github.com/user-attachments/assets/1b589e08-3aa0-4078-9c60-a8337086d846" />
+
 
 
 
@@ -62,11 +106,35 @@ Algorithm:
  
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #define SIZE 5
+    int queue[SIZE], front = -1, rear = -1;
+    
+    void display() {
+        if (front == -1)
+            printf("Queue is empty\n");
+        else {
+            printf("Queue elements: ");
+            for (int i = front; i <= rear; i++)
+                printf("%d ", queue[i]);
+            printf("\n");
+        }
+    }
+    
+    int main() {
+        queue[++rear] = 5;
+        if (front == -1) front = 0;
+        queue[++rear] = 10;
+        queue[++rear] = 15;
+        display();
+        return 0;
+    }
+
 
 Output:
 
-//paste your output here
+<img width="465" height="237" alt="image" src="https://github.com/user-attachments/assets/3f9046d9-db1e-400f-ab86-0f04c2d790e9" />
+
 
 
 Result:
@@ -86,11 +154,33 @@ Algorithm:
 
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #define SIZE 5
+    float queue[SIZE];
+    int front = -1, rear = -1;
+    
+    void enqueue(float x) {
+        if (rear == SIZE - 1)
+            printf("Queue overflow\n");
+        else {
+            if (front == -1) front = 0;
+            queue[++rear] = x;
+            printf("%.2f inserted\n", x);
+        }
+    }
+    
+    int main() {
+        enqueue(10.5);
+        enqueue(20.2);
+        enqueue(30.1);
+        return 0;
+    }
+
 
 Output:
 
-//paste your output here
+<img width="474" height="222" alt="image" src="https://github.com/user-attachments/assets/2625035e-32d4-4eaa-bfae-2f786089ea56" />
+
 
 Result:
 Thus, the program to insert elements in queue using array is verified successfully.
@@ -121,11 +211,34 @@ o	After deletion, check if the front pointer has passed the rear pointer (front 
 
 Program:
 
-//type your code here
+    #include <stdio.h>
+    #define SIZE 5
+    int queue[SIZE], front = -1, rear = -1;
+    
+    void dequeue() {
+        if (front == -1)
+            printf("Queue is empty\n");
+        else {
+            printf("Deleted: %d\n", queue[front++]);
+            if (front > rear) front = rear = -1;
+        }
+    }
+    
+    int main() {
+        queue[++rear] = 10;
+        if (front == -1) front = 0;
+        queue[++rear] = 20;
+        queue[++rear] = 30;
+        dequeue();
+        dequeue();
+        return 0;
+    }
+
 
 Output:
 
-//paste your output here
+<img width="658" height="258" alt="image" src="https://github.com/user-attachments/assets/0ca19169-06d1-461e-b171-a67362cfe959" />
+
 
 
 Result:
