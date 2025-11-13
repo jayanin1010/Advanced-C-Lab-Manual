@@ -12,10 +12,29 @@ Algorithm:
 5.	Call the max_of_four function with the input integers and store the result in the greater variable
  
 Program:
-//type your code here
+
+     #include <stdio.h>
+     
+     int max_of_four(int a, int b, int c, int d) {
+         int max = a;
+         if (b > max) max = b;
+         if (c > max) max = c;
+         if (d > max) max = d;
+         return max;
+     }
+     
+     int main() {
+         int n1, n2, n3, n4;
+         printf("Enter four numbers: ");
+         scanf("%d %d %d %d", &n1, &n2, &n3, &n4);
+         printf("Greatest number is: %d\n", max_of_four(n1, n2, n3, n4));
+         return 0;
+     }
+
 
 Output:
-//paste your output here
+<img width="556" height="286" alt="image" src="https://github.com/user-attachments/assets/1ff40325-6f67-4d10-b90a-e29a4f330b69" />
+
 
 Result:
 Thus, the program  that create a function to find the greatest number is verified successfully.
@@ -36,10 +55,33 @@ Algorithm:
 7.	Call the calculate_the_max function with input values.
  
 Program:
-//type your code here
+
+    #include <stdio.h>
+    
+    void calculate_the_max(int n, int k) {
+        int a = 0, o = 0, x = 0;
+        for (int i = 1; i < n; i++) {
+            for (int j = i + 1; j <= n; j++) {
+                if ((i & j) < k && (i & j) > a) a = i & j;
+                if ((i | j) < k && (i | j) > o) o = i | j;
+                if ((i ^ j) < k && (i ^ j) > x) x = i ^ j;
+            }
+        }
+        printf("Max AND: %d\nMax OR: %d\nMax XOR: %d\n", a, o, x);
+    }
+    
+    int main() {
+        int n, k;
+        printf("Enter n and k: ");
+        scanf("%d %d", &n, &k);
+        calculate_the_max(n, k);
+        return 0;
+    }
+
 
 Output:
-//paste your output here
+<img width="495" height="258" alt="image" src="https://github.com/user-attachments/assets/c9aadbc4-9803-499e-98c8-718c7fd41309" />
+
 
 Result:
 Thus, the program to print the maximum values for the AND, OR and XOR comparisons
@@ -59,10 +101,38 @@ Algorithm:
 5.	Use a for loop to iterate over the queries.
  
 Program:
-//type your code here
+
+    #include <stdio.h>
+    
+    int main() {
+        int noshel, noque;
+        printf("Enter number of shelves and queries: ");
+        scanf("%d %d", &noshel, &noque);
+    
+        int shelarr[100][100], nobookarr[100] = {0};
+    
+        for (int i = 0; i < noque; i++) {
+            int type, x, y;
+            scanf("%d", &type);
+            if (type == 1) {
+                scanf("%d %d", &x, &y);
+                shelarr[x][nobookarr[x]] = y;
+                nobookarr[x]++;
+            } else if (type == 2) {
+                scanf("%d %d", &x, &y);
+                printf("%d\n", shelarr[x][y]);
+            } else if (type == 3) {
+                scanf("%d", &x);
+                printf("%d\n", nobookarr[x]);
+            }
+        }
+        return 0;
+    }
+
 
 Output:
-//paste your output here
+<img width="603" height="205" alt="image" src="https://github.com/user-attachments/assets/5923e51d-babc-4aaf-8933-2c3a6c376b61" />
+
 
 
 Result:
@@ -86,10 +156,27 @@ Algorithm:
 
 
 Program:
-//type your code here
+
+    #include <stdio.h>
+    
+    int main() {
+        int n, sum = 0;
+        printf("Enter number of elements: ");
+        scanf("%d", &n);
+        int a[n];
+        printf("Enter %d numbers: ", n);
+        for (int i = 0; i < n; i++) {
+            scanf("%d", &a[i]);
+            sum += a[i];
+        }
+        printf("Sum = %d\n", sum);
+        return 0;
+    }
+
 
 Output:
-//paste your output here
+<img width="606" height="284" alt="image" src="https://github.com/user-attachments/assets/f8797459-2e5b-46ce-adb7-dfa29f62c998" />
+
 
  
 
@@ -120,10 +207,30 @@ o	If a character is not a space, it may belong to a word. If it's the first non-
 
 
 Program:
-//type your code here
+
+    #include <stdio.h>
+    #include <string.h>
+    
+    int main() {
+        char str[200];
+        int count = 0;
+        printf("Enter a sentence: ");
+        fgets(str, sizeof(str), stdin);
+    
+        for (int i = 0; i < strlen(str); i++) {
+            if ((str[i] != ' ' && str[i] != '\n') && 
+                (i == 0 || str[i - 1] == ' ' || str[i - 1] == '\n'))
+                count++;
+        }
+    
+        printf("Number of words: %d\n", count);
+        return 0;
+    }
+
 
 Output:
-//paste your output here
+<img width="472" height="253" alt="image" src="https://github.com/user-attachments/assets/c295ec89-38ad-4dab-afdc-dcf5820c1de2" />
+
 
 
 
